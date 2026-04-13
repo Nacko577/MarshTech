@@ -15,6 +15,12 @@
   text-decoration: none;
 }
 
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
 .nav-links a {
   color: #94a3b8;
   text-decoration: none;
@@ -23,6 +29,21 @@
 
 .nav-links a.active,
 .nav-links a:hover {
+  color: white;
+}
+
+.btn-logout {
+  background: none;
+  border: 1px solid #475569;
+  color: #94a3b8;
+  border-radius: 6px;
+  padding: 0.3rem 0.75rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.btn-logout:hover {
+  border-color: #94a3b8;
   color: white;
 }
 

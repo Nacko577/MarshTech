@@ -1,9 +1,12 @@
-<nav class="navbar">
-  <a routerLink="/" class="nav-brand">Device Management</a>
-  <div class="nav-links">
-    <a routerLink="/devices" routerLinkActive="active">Devices</a>
-  </div>
-</nav>
+@if (auth.isLoggedIn()) {
+  <nav class="navbar">
+    <a routerLink="/" class="nav-brand">Device Management</a>
+    <div class="nav-links">
+      <a routerLink="/devices" routerLinkActive="active">Devices</a>
+      <button class="btn-logout" (click)="auth.logout()">Logout</button>
+    </div>
+  </nav>
+}
 
 <main>
   <router-outlet />

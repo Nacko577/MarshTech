@@ -1,0 +1,55 @@
+<div class="login-wrapper">
+  <div class="login-card">
+    <h1>Device Management</h1>
+    <p class="subtitle">Create an account</p>
+
+    @if (error()) {
+      <p class="error">{{ error() }}</p>
+    }
+
+    <form (ngSubmit)="onSubmit()" #f="ngForm">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input
+          id="username"
+          name="username"
+          [(ngModel)]="username"
+          required
+          autocomplete="username"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          id="password"
+          name="password"
+          type="password"
+          [(ngModel)]="password"
+          required
+          minlength="8"
+          autocomplete="new-password"
+        />
+        <span class="hint">At least 8 characters, including a number and a special character.</span>
+      </div>
+
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input
+          id="confirmPassword"
+          name="confirmPassword"
+          type="password"
+          [(ngModel)]="confirmPassword"
+          required
+          autocomplete="new-password"
+        />
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-full" [disabled]="f.invalid || loading()">
+        {{ loading() ? 'Creating account...' : 'Create account' }}
+      </button>
+    </form>
+
+    <p class="switch-link">Already have an account? <a routerLink="/login">Sign in</a></p>
+  </div>
+</div>
