@@ -1,0 +1,99 @@
+@DeviceManagement.API_HostAddress = https://localhost:7286
+
+### ── Devices ──────────────────────────────────────────────────────────────
+
+### Get all devices
+GET {{DeviceManagement.API_HostAddress}}/api/devices
+Accept: application/json
+
+###
+
+### Get device by id
+GET {{DeviceManagement.API_HostAddress}}/api/devices/1
+Accept: application/json
+
+###
+
+### Create a device
+POST {{DeviceManagement.API_HostAddress}}/api/devices
+Content-Type: application/json
+
+{
+  "name": "iPhone 15 Pro",
+  "manufacturer": "Apple",
+  "type": "Phone",
+  "operatingSystem": "iOS",
+  "osVersion": "17.4",
+  "processor": "Apple A17 Pro",
+  "ramAmount": "8GB",
+  "description": "High-performance Apple smartphone.",
+  "userId": null
+}
+
+###
+
+### Update a device
+PUT {{DeviceManagement.API_HostAddress}}/api/devices/1
+Content-Type: application/json
+
+{
+  "name": "iPhone 15 Pro",
+  "manufacturer": "Apple",
+  "type": "Phone",
+  "operatingSystem": "iOS",
+  "osVersion": "17.5",
+  "processor": "Apple A17 Pro",
+  "ramAmount": "8GB",
+  "description": "Updated description.",
+  "userId": 1
+}
+
+###
+
+### Delete a device
+DELETE {{DeviceManagement.API_HostAddress}}/api/devices/1
+
+###
+
+### ── Users ────────────────────────────────────────────────────────────────
+
+### Get all users
+GET {{DeviceManagement.API_HostAddress}}/api/users
+Accept: application/json
+
+###
+
+### Get user by id
+GET {{DeviceManagement.API_HostAddress}}/api/users/1
+Accept: application/json
+
+###
+
+### Create a user
+POST {{DeviceManagement.API_HostAddress}}/api/users
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "role": "Developer",
+  "location": "New York"
+}
+
+###
+
+### Update a user
+PUT {{DeviceManagement.API_HostAddress}}/api/users/1
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "role": "Senior Developer",
+  "location": "San Francisco"
+}
+
+###
+
+### Delete a user
+DELETE {{DeviceManagement.API_HostAddress}}/api/users/1
+
+###
