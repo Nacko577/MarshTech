@@ -12,9 +12,6 @@ public class Device
     public string RamAmount { get; set; } = string.Empty;
     public string? Description { get; set; }
 
-    // FK – null means device is currently unassigned
     public int? UserId { get; set; }
-
-    // Navigation property
     public User? User { get; set; }
 }

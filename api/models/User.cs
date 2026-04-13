@@ -7,6 +7,5 @@ public class User
     public string Role { get; set; } = string.Empty;
     public string Location { get; set; } = string.Empty;
 
-    // Navigation property
     public ICollection<Device> Devices { get; set; } = new List<Device>();
 }

@@ -1,0 +1,44 @@
+.back-link {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  color: #6b7280;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  color: #111827;
+}
+
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1rem;
+  background: #f9fafb;
+  border-radius: 6px;
+}
+
+.detail-item.full-width {
+  grid-column: span 2;
+}
+
+.label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #6b7280;
+}

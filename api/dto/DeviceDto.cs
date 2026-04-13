@@ -3,7 +3,6 @@ using DeviceManagement.API.Models;
 
 namespace DeviceManagement.API.DTOs;
 
-// Returned to clients – includes current user info
 public class DeviceDto
 {
     public int Id { get; set; }
@@ -19,7 +18,6 @@ public class DeviceDto
     public UserDto? User { get; set; }
 }
 
-// Used when creating or updating a device
 public class DeviceWriteDto
 {
     [Required]

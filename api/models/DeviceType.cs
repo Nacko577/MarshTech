@@ -2,6 +2,6 @@ namespace DeviceManagement.API.Models;
 
 public enum DeviceType
 {
-    Phone = 0,
-    Tablet = 1
+    Phone,
+    Tablet
 }

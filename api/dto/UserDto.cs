@@ -2,7 +2,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DeviceManagement.API.DTOs;
 
-// Returned to clients
 public class UserDto
 {
     public int Id { get; set; }
@@ -11,7 +10,6 @@ public class UserDto
     public string Location { get; set; } = string.Empty;
 }
 
-// Used when creating or updating a user
 public class UserWriteDto
 {
     [Required]

@@ -1,0 +1,95 @@
+<div class="container">
+  <a routerLink="/devices" class="back-link">← Back to list</a>
+
+  <h1>{{ isEdit ? 'Edit Device' : 'New Device' }}</h1>
+
+  @if (error()) {
+    <p class="error">{{ error() }}</p>
+  }
+
+  @if (!ready()) {
+    <p>Loading...</p>
+  } @else {
+    <form (ngSubmit)="onSubmit()" #f="ngForm">
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input id="name" name="name" [(ngModel)]="form.name" required #name="ngModel" />
+          @if (name.invalid && name.touched) {
+            <span class="field-error">Name is required.</span>
+          }
+        </div>
+
+        <div class="form-group">
+          <label for="manufacturer">Manufacturer</label>
+          <input id="manufacturer" name="manufacturer" [(ngModel)]="form.manufacturer" required #manufacturer="ngModel" />
+          @if (manufacturer.invalid && manufacturer.touched) {
+            <span class="field-error">Manufacturer is required.</span>
+          }
+        </div>
+
+        <div class="form-group">
+          <label for="type">Type</label>
+          <select id="type" name="type" [(ngModel)]="form.type" required>
+            <option value="Phone">Phone</option>
+            <option value="Tablet">Tablet</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="operatingSystem">Operating System</label>
+          <input id="operatingSystem" name="operatingSystem" [(ngModel)]="form.operatingSystem" required #os="ngModel" />
+          @if (os.invalid && os.touched) {
+            <span class="field-error">Operating system is required.</span>
+          }
+        </div>
+
+        <div class="form-group">
+          <label for="osVersion">OS Version</label>
+          <input id="osVersion" name="osVersion" [(ngModel)]="form.osVersion" required #osVersion="ngModel" />
+          @if (osVersion.invalid && osVersion.touched) {
+            <span class="field-error">OS version is required.</span>
+          }
+        </div>
+
+        <div class="form-group">
+          <label for="processor">Processor</label>
+          <input id="processor" name="processor" [(ngModel)]="form.processor" required #processor="ngModel" />
+          @if (processor.invalid && processor.touched) {
+            <span class="field-error">Processor is required.</span>
+          }
+        </div>
+
+        <div class="form-group">
+          <label for="ramAmount">RAM</label>
+          <input id="ramAmount" name="ramAmount" [(ngModel)]="form.ramAmount" required #ram="ngModel" />
+          @if (ram.invalid && ram.touched) {
+            <span class="field-error">RAM is required.</span>
+          }
+        </div>
+
+        <div class="form-group">
+          <label for="userId">Assigned To</label>
+          <select id="userId" name="userId" [(ngModel)]="form.userId">
+            <option [ngValue]="undefined">— Unassigned —</option>
+            @for (user of users(); track user.id) {
+              <option [ngValue]="user.id">{{ user.name }} ({{ user.role }})</option>
+            }
+          </select>
+        </div>
+
+        <div class="form-group full-width">
+          <label for="description">Description</label>
+          <textarea id="description" name="description" [(ngModel)]="form.description" rows="3"></textarea>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <a routerLink="/devices" class="btn btn-secondary">Cancel</a>
+        <button type="submit" class="btn btn-primary" [disabled]="f.invalid || loading()">
+          {{ isEdit ? 'Save Changes' : 'Create Device' }}
+        </button>
+      </div>
+    </form>
+  }
+</div>

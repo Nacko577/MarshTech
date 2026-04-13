@@ -1,0 +1,51 @@
+<div class="container">
+  <a routerLink="/devices" class="back-link">← Back to list</a>
+
+  @if (loading()) {
+    <p>Loading...</p>
+  } @else if (error()) {
+    <p class="error">{{ error() }}</p>
+  } @else if (device()) {
+    <div class="detail-header">
+      <h1>{{ device()!.name }}</h1>
+      <a [routerLink]="['/devices', device()!.id, 'edit']" class="btn btn-secondary">Edit</a>
+    </div>
+
+    <div class="detail-grid">
+      <div class="detail-item">
+        <span class="label">Manufacturer</span>
+        <span>{{ device()!.manufacturer }}</span>
+      </div>
+      <div class="detail-item">
+        <span class="label">Type</span>
+        <span>{{ device()!.type }}</span>
+      </div>
+      <div class="detail-item">
+        <span class="label">Operating System</span>
+        <span>{{ device()!.operatingSystem }} {{ device()!.osVersion }}</span>
+      </div>
+      <div class="detail-item">
+        <span class="label">Processor</span>
+        <span>{{ device()!.processor }}</span>
+      </div>
+      <div class="detail-item">
+        <span class="label">RAM</span>
+        <span>{{ device()!.ramAmount }}</span>
+      </div>
+      <div class="detail-item">
+        <span class="label">Assigned To</span>
+        @if (device()!.user) {
+          <span>{{ device()!.user!.name }} ({{ device()!.user!.role }}, {{ device()!.user!.location }})</span>
+        } @else {
+          <span>Unassigned</span>
+        }
+      </div>
+      @if (device()!.description) {
+        <div class="detail-item full-width">
+          <span class="label">Description</span>
+          <span>{{ device()!.description }}</span>
+        </div>
+      }
+    </div>
+  }
+</div>

@@ -54,8 +54,6 @@ public class DeviceRepository : IDeviceRepository
         existing.UserId = updated.UserId;
 
         await _db.SaveChangesAsync();
-
-        // Reload with navigation so the caller gets the full picture
         return await GetByIdAsync(id);
     }
 
